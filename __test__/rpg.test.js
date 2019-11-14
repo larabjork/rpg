@@ -82,8 +82,9 @@ describe ('Game', () => {
     newGame.addHouse(newHouse4);
     newGame.addHouse(newHouse5);
     newGame.calculateStartingLand();
-    newHouse3.land = 95;
+    newHouse5.land = 95;
     expect(newGame.checkForWinner()).toEqual(true);
+    expect(newGame.winner.land >= 95).toEqual(true);
   });
 
 });
