@@ -53,4 +53,17 @@ describe ('Game', () => {
     expect(newHouse5.land).toEqual(20);
   });
 
+  test('should reset game back to starting point', () => {
+    newGame.addHouse(newHouse1);
+    newGame.addHouse(newHouse2);
+    newGame.addHouse(newHouse3);
+    newGame.addHouse(newHouse4);
+    newGame.addHouse(newHouse5);
+    newGame.calculateStartingLand();
+    newGame.reset();
+    expect(Array.isArray(newGame.houses)).toEqual(true);
+    expect(newGame.houses.length === 0).toEqual(true);
+    expect(newGame.isReady).toEqual(false);
+    expect(newGame.isOver).toEqual(false);
+  });
 });
