@@ -14,8 +14,23 @@ describe('House', () => {
 
 describe ('Game', () => {
 
+  let newGame;
+  let newHouse1;
+  let newHouse2;
+  let newHouse3;
+  let newHouse4;
+  let newHouse5;
+
+  beforeEach(() => {
+    newGame = new Game();
+    newHouse1 = new House("Lannister", "Circe");
+    newHouse2 = new House("Stark", "Jphn Snow");
+    newHouse3 = new House("Tyrell", "Margrie");
+    newHouse4 = new House("Greyjoy", "Theon");
+    newHouse5 = new House("Targgaryen", "Khalessi");
+  });
+
   test('should create a new game with an empty array of houses that is not ready to play and is not over', () => {
-    const newGame = new Game();
     expect(Array.isArray(newGame.houses)).toEqual(true);
     expect(newGame.houses.length === 0).toEqual(true);
     expect(newGame.isReady).toEqual(false);
@@ -23,10 +38,19 @@ describe ('Game', () => {
   });
 
   test('should add houses to array with a house id', () =>{
-    const newHouse = new House("Lannister", "Circe");
-    const newGame = new Game();
-    newGame.addHouse(newHouse);
+    newGame.addHouse(newHouse1);
     expect(newGame.houses.length===1).toEqual(true);
     expect(newGame.houses[0].id).toEqual(0);
   });
+
+  test('should calculate starting land and update all houses', () => {
+    newGame.addHouse(newHouse1);
+    newGame.addHouse(newHouse2);
+    newGame.addHouse(newHouse3);
+    newGame.addHouse(newHouse4);
+    newGame.addHouse(newHouse5);
+    newGame.calculateStartingLand();
+    expect(newHouse5.land).toEqual(.2);
+  });
+
 });
