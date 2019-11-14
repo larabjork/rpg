@@ -14,7 +14,7 @@ export class Game {
 
   calculateStartingLand() {
     const numOfHouses = this.houses.length;
-    const startLand = parseFloat((1/numOfHouses).toFixed(2));
+    const startLand = parseInt(Math.floor(100/numOfHouses));
     this.houses.forEach(house => house.land = startLand);
     }
 }
