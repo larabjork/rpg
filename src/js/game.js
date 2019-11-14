@@ -12,4 +12,9 @@ export class Game {
     this.houses.push(house);
   }
 
+  calculateStartingLand() {
+    const numOfHouses = this.houses.length;
+    const startLand = parseFloat((1/numOfHouses).toFixed(2));
+    this.houses.forEach(house => house.land = startLand);
+    }
 }

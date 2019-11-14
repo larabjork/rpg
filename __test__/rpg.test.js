@@ -50,7 +50,7 @@ describe ('Game', () => {
     newGame.addHouse(newHouse4);
     newGame.addHouse(newHouse5);
     newGame.calculateStartingLand();
-    expect(newHouse5.land).toEqual(.2);
+    expect(newHouse5.land).toEqual(.20);
   });
 
 });
