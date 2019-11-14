@@ -67,11 +67,23 @@ describe ('Game', () => {
     expect(newGame.isOver).toEqual(false);
   });
 
-  test('should only start play if there are at least three houses', () =>{
+  test('should only start play if there are at least three houses', () => {
     newGame.addHouse(newHouse1);
     newGame.addHouse(newHouse2);
     expect(newGame.isReady).toEqual(false);
     newGame.addHouse(newHouse3);
-    expect(newGame.isReady).toEqual(true); 
-  })
+    expect(newGame.isReady).toEqual(true);
+  });
+
+  test('should acccurately determine if a player has won', () => {
+    newGame.addHouse(newHouse1);
+    newGame.addHouse(newHouse2);
+    newGame.addHouse(newHouse3);
+    newGame.addHouse(newHouse4);
+    newGame.addHouse(newHouse5);
+    newGame.calculateStartingLand();
+    newHouse3.land = 95;
+    expect(newGame.checkForWinner()).toEqual(true);
+  });
+
 });
