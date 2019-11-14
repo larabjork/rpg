@@ -66,4 +66,12 @@ describe ('Game', () => {
     expect(newGame.isReady).toEqual(false);
     expect(newGame.isOver).toEqual(false);
   });
+
+  test('should only start play if there are at least three houses', () =>{
+    newGame.addHouse(newHouse1);
+    newGame.addHouse(newHouse2);
+    expect(newGame.isReady).toEqual(false);
+    newGame.addHouse(newHouse3);
+    expect(newGame.isReady).toEqual(true); 
+  })
 });
