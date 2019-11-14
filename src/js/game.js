@@ -19,11 +19,23 @@ export class Game {
     this.houses.forEach(house => house.land = startLand);
     }
 
-  reset(){
+  reset() {
     this.houses = [];
     this.isOver = false;
     this.isReady= false;
     this.houseCount = 0;
+  }
+
+  checkForWinner() {
+    const numHouses = this.houses.length;
+    this.houses.forEach((house, i) => {
+      if (house.land >= 95) {
+        this.isOver = true;
+        this.winner = house;
+        return true;
+      }
+    });
+    return this.isOver;
   }
 
 }
