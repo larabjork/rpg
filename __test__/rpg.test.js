@@ -22,10 +22,11 @@ describe ('Game', () => {
     expect(newGame.isOver).toEqual(false);
   });
 
-  test('should add houses to array', () =>{
+  test('should add houses to array with a house id', () =>{
     const newHouse = new House("Lannister", "Circe");
     const newGame = new Game();
     newGame.addHouse(newHouse);
     expect(newGame.houses.length===1).toEqual(true);
+    expect(newGame.houses[0].id).toEqual(0);
   });
 });
