@@ -17,4 +17,11 @@ export class Game {
     const startLand = parseInt(Math.floor(100/numOfHouses));
     this.houses.forEach(house => house.land = startLand);
     }
+
+  reset(){
+    this.houses = [];
+    this.isOver = false;
+    this.isReady= false;
+    this.houseCount = 0;
+  }
 }
