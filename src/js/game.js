@@ -10,6 +10,7 @@ export class Game {
     house.id = this.houseCount;
     this.houseCount++;
     this.houses.push(house);
+    if (this.houses.length > 2) this.isReady = true;
   }
 
   calculateStartingLand() {
@@ -24,4 +25,5 @@ export class Game {
     this.isReady= false;
     this.houseCount = 0;
   }
+
 }
